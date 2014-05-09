@@ -10,7 +10,23 @@ namespace DummyAPI.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Dummy API";
+
+            return View();
+        }
+
+        public ActionResult Features()
+        {
+            ViewBag.Title = "Features";
+            return View();
+
+                
+        }
+
+        public ActionResult Create()
+        {
+
+            ViewBag.Title = "Create";
 
             return View();
         }
