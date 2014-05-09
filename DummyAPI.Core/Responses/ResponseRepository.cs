@@ -15,7 +15,10 @@ namespace DummyAPI.Core.Responses
 
         private Dictionary<string, string> responses;
 
-        private ResponseRepository() { }
+        private ResponseRepository() 
+        {
+            responses = new Dictionary<string, string>();
+        }
 
         public static ResponseRepository Instance
         {
