@@ -1,14 +1,38 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
+<div class="row">
+    <div class="col-md-8">
+        <form ng-controller="CreateServiceController" role="form">
+
+            <div class="form-group">
+                <label for="responseBody">
+                    Enter the response body of your web service.
+                </label>
+                <textarea id="responseBody" ng-model="service.responseBody" rows="10" class="form-control responseBody" style="width:100%"></textarea>
+            </div>
+
+            <button type="button" ng-click="createService(service)" class="btn btn-primary">Create</button>
+            <button type="button" ng-click="clearService(service)" class="btn btn-default">Clear</button>
+
+            <input ng-model="service.url" type="text" class="form-control" placeholder="Click Create" readonly>
+        </form>
+
+        
+
+    </div>
+    <div class="col-md-4 center-block">
+        <h1 class="glyphicon glyphicon-ok-circle">
+        </h1>
+    </div>
+</div>
 
 
-<ul>
-    <li>Create WebService</li>
-    <li>Post data to text area</li>
-    <li>Upload and save and return a url to the user</li>
-    <li>Use angular</li>
-</ul>
+
+@section scripts
+{
+
+    <script src="~/Scripts/app/Controllers/CreateServiceController.js"></script>
+}
