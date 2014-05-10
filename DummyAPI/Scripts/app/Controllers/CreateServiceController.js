@@ -7,12 +7,13 @@ app.controller('CreateServiceController',
     function CreateServiceController($scope) {
 
         $scope.service = {
-            responseBody: 'testData',
+            responseBody: '',
             url: ''
         },
         $scope.createService = function(service)
         {
             service.url = 'http://google.com';
+            console.log(service.responseBody);
             //window.alert(service.responseBody);
         },
         $scope.clearService = function (service)
