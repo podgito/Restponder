@@ -30,9 +30,9 @@ namespace DummyAPI.Controllers
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        public string Get(string id)
         {
-            return "value";
+            return "Data returned";
         }
 
         // POST api/<controller>
@@ -40,7 +40,7 @@ namespace DummyAPI.Controllers
         /// 
         /// </summary>
         /// <param name="value">http body</param>
-        public string Post([FromBody]string value)
+        public object  Post([FromBody]string value)
         {
             var key = responseRepository.SaveResponse(value);
 
@@ -49,7 +49,11 @@ namespace DummyAPI.Controllers
 
 
             var uri = new Uri(uriString);
-            return uri.AbsoluteUri;
+
+
+            var obj = new { url = uri.AbsoluteUri };
+
+            return obj;
             //return "http://testurl.com";
         }
 

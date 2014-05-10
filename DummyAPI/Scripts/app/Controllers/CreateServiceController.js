@@ -15,7 +15,11 @@ app.controller('CreateServiceController',
         {
             if (createServiceForm.$valid)
             {
-                service.url = webServiceGenerator.generatedService.url;
+                webServiceGenerator.createService(service.responseBody, function (data) {
+                    service.url = data.url;
+                });
+
+                //service.url = webServiceGenerator.generatedService.url;
                 console.log(service.responseBody);
             }
            

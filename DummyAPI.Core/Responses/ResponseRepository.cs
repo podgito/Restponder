@@ -47,7 +47,7 @@ namespace DummyAPI.Core.Responses
             //Create identifier
             var identifier = RandomStringGenerator.AlphaNumericString(10);
 
-            while(!responses.ContainsKey(identifier))
+            while(responses.ContainsKey(identifier))
             {
                 identifier = RandomStringGenerator.AlphaNumericString(10);
             }
