@@ -22,7 +22,7 @@ app.factory('webServiceGenerator', function ($http, $log) {
             $http({
                 method: 'POST',
                 url: '/api/dummy',
-                data: "\"" + responseData + "\""
+                data: responseData
                 //headers: { 'Content-Type': 'application/json' }
 
             }).success(function (data, status, headers, config) {

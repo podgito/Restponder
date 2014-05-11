@@ -13,11 +13,11 @@ namespace DummyAPI.Core.Responses
 
         private static object syncRoot = new Object();
 
-        private Dictionary<string, string> responses;
+        private Dictionary<string, object> responses;
 
         private ResponseRepository() 
         {
-            responses = new Dictionary<string, string>();
+            responses = new Dictionary<string, object>();
         }
 
         public static ResponseRepository Instance
@@ -36,13 +36,13 @@ namespace DummyAPI.Core.Responses
             }
         }
 
-        public string GetResponse(string responseId)
+        public object GetResponse(string responseId)
         {
             return responses[responseId];
         }
 
 
-        public string SaveResponse(string response)
+        public string SaveResponse(object response)
         {
             //Create identifier
             var identifier = RandomStringGenerator.AlphaNumericString(10);

@@ -30,7 +30,7 @@ namespace DummyAPI.Controllers
         }
 
         // GET api/<controller>/5
-        public string Get(string id)
+        public object Get(string id)
         {
             return responseRepository.GetResponse(id);
         }
@@ -40,7 +40,7 @@ namespace DummyAPI.Controllers
         /// 
         /// </summary>
         /// <param name="value">http body</param>
-        public object  Post([FromBody]string value)
+        public object  Post([FromBody]object value)
         {
             var key = responseRepository.SaveResponse(value);
 

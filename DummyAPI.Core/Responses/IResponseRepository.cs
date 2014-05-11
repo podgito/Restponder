@@ -8,8 +8,8 @@ namespace DummyAPI.Core.Responses
         /// </summary>
         /// <param name="responseId">The alphanumeric identifier</param>
         /// <returns></returns>
-        string GetResponse(string responseId);
+        object GetResponse(string responseId);
 
-        string SaveResponse(string response);
+        string SaveResponse(object response);
     }
 }
