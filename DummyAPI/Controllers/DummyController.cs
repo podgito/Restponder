@@ -32,7 +32,7 @@ namespace DummyAPI.Controllers
         // GET api/<controller>/5
         public string Get(string id)
         {
-            return "Data returned";
+            return responseRepository.GetResponse(id);
         }
 
         // POST api/<controller>

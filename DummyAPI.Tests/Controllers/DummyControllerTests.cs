@@ -56,7 +56,7 @@ namespace DummyAPI.Tests.Controllers
             var returnedString = controller.Post(testData);
 
             //Assert
-            var url = new Uri(returnedString);
+            var url = new Uri(returnedString.ToString());
 
             Assert.IsTrue(url.IsAbsoluteUri);
         }
@@ -81,10 +81,10 @@ namespace DummyAPI.Tests.Controllers
 
             //Act
             var returnedString = controller.Post(testData);
-
+           
 
             //Assert
-            StringAssert.Contains(key, returnedString);
+            StringAssert.Contains(key, returnedString.ToString());
  
         }
 
