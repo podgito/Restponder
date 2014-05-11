@@ -10,9 +10,9 @@
 
                 <div class="form-group">
                     <label for="responseBody">
-                        Enter the response body for your web service.
+                        Enter the response body for your web service. (JSON only)
                     </label>
-                    <textarea id="responseBody" ng-model="service.responseBody" rows="10" class="form-control responseBody" placeholder="Enter response data..." required></textarea>
+                    <textarea ng-pattern="" id="responseBody" ng-model="service.responseBody" rows="10" class="form-control responseBody" placeholder="Enter response data..." required></textarea>
                 </div>
 
                 <button type="submit" ng-click="createService(service, createServiceForm)" class="btn btn-primary">Create</button>
