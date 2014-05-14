@@ -30,9 +30,13 @@ namespace DummyAPI.Controllers
         }
 
         // GET api/<controller>/5
-        public object Get(string id)
+        public HttpResponseMessage Get(string id)
         {
-            return responseRepository.GetResponse(id);
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent(responseRepository.GetResponse(id))
+
+            };
         }
 
         // POST api/<controller>
@@ -40,21 +44,37 @@ namespace DummyAPI.Controllers
         /// 
         /// </summary>
         /// <param name="value">http body</param>
-        public object  Post([FromBody]object value)
-        {
-            var key = responseRepository.SaveResponse(value);
+        //public object  Post([FromBody]object value)
+        //{
+        //    var key = responseRepository.SaveResponse(value);
 
+
+        //    var uriString = Url.Link("DefaultApi", new { controller = "Dummy", id = key });
+
+
+        //    var uri = new Uri(uriString);
+
+
+        //    var obj = new { url = uri.AbsoluteUri };
+
+        //    return obj;
+        //    //return "http://testurl.com";
+        //}
+
+        public async System.Threading.Tasks.Task<object> Post()
+        {
+            
+            var input = await Request.Content.ReadAsStringAsync();
+
+            var key = responseRepository.SaveResponse(input);
 
             var uriString = Url.Link("DefaultApi", new { controller = "Dummy", id = key });
 
+           
 
             var uri = new Uri(uriString);
+            return new { url = uri.AbsoluteUri };
 
-
-            var obj = new { url = uri.AbsoluteUri };
-
-            return obj;
-            //return "http://testurl.com";
         }
 
         // PUT api/<controller>/5
