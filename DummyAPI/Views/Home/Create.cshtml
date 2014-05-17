@@ -2,17 +2,20 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create response</h2>
 <div ng-controller="CreateServiceController">
     <div class="row">
         <div class="col-md-8">
             <form role="form" name="createServiceForm">
 
                 <div class="form-group">
+
                     <label for="responseBody">
-                        Enter the response body for your web service. (JSON only)
+                        Enter the response body for your web service.
                     </label>
-                    <textarea ng-pattern="" id="responseBody" ng-model="service.responseBody" rows="10" class="form-control responseBody" placeholder="Enter response data..." required></textarea>
+
+
+                    <textarea id="responseBody" ng-model="service.responseBody" rows="10" class="form-control responseBody" placeholder="Enter response data..." required></textarea>
                 </div>
 
                 <button type="submit" ng-click="createService(service, createServiceForm)" class="btn btn-primary">Create</button>
@@ -34,6 +37,12 @@
 
 
         </div>
+        <div class="col-md-2">
+            
+            
+            <text-format-validation-message text="{{service.responseBody}}" />
+
+        </div>
 
     </div>
 
@@ -41,7 +50,9 @@
 
 @section scripts
 {
+    <script src="~/Scripts/app/Services/Validation/JSONValidator.js"></script>
     <script src="~/Scripts/app/Services/WebServiceGenerator.js"></script>
+<script src="~/Scripts/app/Directives/TextFormatValidationMessage.js"></script>
     <script src="~/Scripts/app/Controllers/CreateServiceController.js"></script>
     <script src="~/Scripts/zeroclipboard/ZeroClipboard.min.js"></script>
     <script src="~/Scripts/zeroclipboard/ServiceUrlCopy.js"></script>

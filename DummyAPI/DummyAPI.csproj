@@ -170,7 +170,9 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\Controllers\CreateServiceController.js" />
-    <Content Include="Scripts\app\Services\HttpBodyValidator.js" />
+    <Content Include="Scripts\app\Directives\TextFormatValidationMessage.js" />
+    <Content Include="Scripts\app\Services\Validation\HttpBodyValidator.js" />
+    <Content Include="Scripts\app\Services\Validation\JSONValidator.js" />
     <Content Include="Scripts\app\Services\WebServiceGenerator.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
