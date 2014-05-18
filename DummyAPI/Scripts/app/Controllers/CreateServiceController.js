@@ -7,27 +7,36 @@
 app.controller('CreateServiceController',
     function CreateServiceController($scope, webServiceGenerator) {
 
-        $scope.service = {
-            responseBody: '',
+        //$scope.service = {
+        //    responseBody: '',
+        //    url: ''
+        //},
+        $scope.response = {
+            body: '',
+            headers: [],
             url: ''
         },
-        $scope.createService = function (service, createServiceForm)
+        $scope.createService = function (response, createServiceForm)
         {
             if (createServiceForm.$valid)
             {
-                webServiceGenerator.createService(service.responseBody, function (data) {
-                    service.url = data.url;
+                webServiceGenerator.createService(response.body, function (data) {
+                    response.url = data.url;
                 });
 
                 //service.url = webServiceGenerator.generatedService.url;
-                console.log(service.responseBody);
+                console.log(response.body);
             }
            
         },
-        $scope.clearService = function (service)
+        $scope.clearService = function (response)
         {
-            service.responseBody = '';
-            service.url = '';
+            //service.responseBody = '';
+            //service.url = '';
+
+            response.body = '';
+            response.url = '';
+
         }
 
 
