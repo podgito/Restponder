@@ -3,7 +3,7 @@
 
 'use strict';
 
-app.factory('contentTypeValidator', function (jsonValidator) {
+app.factory('contentTypeValidator', function (jsonValidator, xmlValidator) {
     return {
        validate : function (body) {
             //Return state of the input form
@@ -14,7 +14,7 @@ app.factory('contentTypeValidator', function (jsonValidator) {
 
             inputState.isJson = jsonValidator.isValid(body);
 
-            inputState.isXML = false;
+            inputState.isXML = xmlValidator.isValid(body);
 
             inputState.isPlainText = !(inputState.isEmpty || inputState.isJson || inputState.isXML);
 
