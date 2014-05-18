@@ -37,7 +37,7 @@ app.directive('contentTypeInfoStack', function (contentTypeValidator) {
                     //Set class based on the state
                     if(state.isEmpty)
                     {
-                        scope.emptyClass = 'btn-success';
+                        scope.emptyClass = 'btn-danger';
                     }
                     if(state.isJson)
                     {
@@ -49,7 +49,7 @@ app.directive('contentTypeInfoStack', function (contentTypeValidator) {
                     }
                     if(state.isPlainText)
                     {
-                        scope.plainClass = 'btn-success';
+                        scope.plainClass = 'btn-warning';
                     }
                  
 
