@@ -1,9 +1,11 @@
 ﻿using DummyAPI.Core.Responses;
+using Parse;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 
@@ -15,7 +17,8 @@ namespace DummyAPI.Controllers
 
         public DummyController()
         {
-            this.responseRepository = ResponseRepository.Instance;
+            //this.responseRepository = ResponseRepository.Instance;
+            this.responseRepository = new ParseResponseRepository();
         }
 
         public DummyController(IResponseRepository responseRepository)
@@ -30,13 +33,36 @@ namespace DummyAPI.Controllers
         }
 
         // GET api/<controller>/5
-        public HttpResponseMessage Get(string id)
+        public HttpResponseMessage oldGet(string id)
         {
             return new HttpResponseMessage()
             {
                 Content = new StringContent(responseRepository.GetResponse(id))
 
             };
+        }
+
+        public async Task<HttpResponseMessage> Get(string id)
+        {
+            return new HttpResponseMessage()
+            {
+                Content = new StringContent(await GetResponse(id))
+
+            };
+        }
+
+        private async Task<string> GetResponse(string key)
+        {
+            // Build a query
+            var query = from post in ParseObject.GetQuery("Response")
+                        where post.Get<string>("key") == key
+                        orderby post.CreatedAt descending
+                        select post;
+
+            // Retrieve the results
+            var response = await query.FirstOrDefaultAsync();
+
+            return response["body"].ToString();
         }
 
         // POST api/<controller>
