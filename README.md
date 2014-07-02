@@ -8,6 +8,17 @@ Dummy Web API is a simple service to quickly create a web service that returns d
 * Version
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
+### Current features ###
+Parse and categorise response body on the fly (JSON, XML, plain text)
+
+### Future features ###
+Request history
+Respond with files
+Return custom headers
+Placeholders for dynamic responses
+Request validation
+SOAP Support - WSDL Reading/Writing, XSLT etc.
+
 ### How do I get set up? ###
 
 * Summary of set up
@@ -25,5 +36,4 @@ Dummy Web API is a simple service to quickly create a web service that returns d
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+Add bugs and feature requests (enhancements) to the issue tracker
