@@ -36,5 +36,4 @@ SOAP Support - WSDL Reading/Writing, XSLT etc.
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+Add bugs and feature requests (enhancements) to the issue tracker
