@@ -1,4 +1,4 @@
 ﻿'use strict';
 
-var app = angular.module('DummyAPI', []);
+var app = angular.module('DummyAPI', ['ngAnimate']);
 
