@@ -26,21 +26,6 @@ namespace DummyAPI.Controllers
             this.responseRepository = responseRepository;
         }
 
-        // GET api/<controller>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<controller>/5
-        public HttpResponseMessage oldGet(string id)
-        {
-            return new HttpResponseMessage()
-            {
-                Content = new StringContent(responseRepository.GetResponse(id))
-
-            };
-        }
 
         public async Task<HttpResponseMessage> Get(string id)
         {
@@ -49,6 +34,13 @@ namespace DummyAPI.Controllers
                 Content = new StringContent(await GetResponse(id))
 
             };
+        }
+
+        public async void Put(string id)
+        {
+            var input = await Request.Content.ReadAsStringAsync();
+
+            responseRepository.UpdateResponse(id, input);
         }
 
         private async Task<string> GetResponse(string key)
@@ -65,27 +57,6 @@ namespace DummyAPI.Controllers
             return response["body"].ToString();
         }
 
-        // POST api/<controller>
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="value">http body</param>
-        //public object  Post([FromBody]object value)
-        //{
-        //    var key = responseRepository.SaveResponse(value);
-
-
-        //    var uriString = Url.Link("DefaultApi", new { controller = "Dummy", id = key });
-
-
-        //    var uri = new Uri(uriString);
-
-
-        //    var obj = new { url = uri.AbsoluteUri };
-
-        //    return obj;
-        //    //return "http://testurl.com";
-        //}
 
         public async System.Threading.Tasks.Task<object> Post()
         {
@@ -104,8 +75,9 @@ namespace DummyAPI.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(string id, [FromBody]string value)
         {
+            responseRepository.UpdateResponse(id, value);
         }
 
         // DELETE api/<controller>/5

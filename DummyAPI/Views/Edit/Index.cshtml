@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Restponder";
+}
+
+<h2>Create response</h2>
+<div ng-controller="UpdateServiceController" data-ng-init="init('@ViewBag.Id')">
+    <div class="row">
+        <div class="col-md-12">
+            <form role="form" name="createServiceForm">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <label for="responseBody">
+                                Enter the response body for your web service.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-sm-10 col-md-8">
+                            <textarea id="responseBody" ng-model="response.body" rows="10" class="form-control responseBody" placeholder="Enter response data..." required>{{response.body}}</textarea>
+                        </div>
+                        <div class="col-sm-2 col-md-2 hidden-xs">
+                            <div class="row"><content-type-info-stack text="{{response.body}}" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <button type="submit" ng-click="updateService(@ViewBag.Id, response, createServiceForm)" class="btn btn-primary">Update</button>
+                            <button type="button" ng-click="clearService(response)" class="btn btn-default">Revert (todo implementation)</button>
+                        </div>
+                    </div>
+                </div>
+                <br />
+
+
+            </form>
+        </div>
+        <div class="col-md-12">
+            <form class="form-inline" role="form">
+                <h3>Generated Url</h3>
+                <div class="form-group">
+
+                    <input id="serviceUrl" ng-model="response.url" type="text" class="form-control" placeholder="Click create above..." readonly>
+                </div>
+                <div class="form-group">
+                    <button id="copy-button" data-clipboard-target="serviceUrl" type="button" class="btn btn-info" title="copy to clipboard"><span class="glyphicon glyphicon-share"></span></button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-2">
+
+            <div class="row"><br /><br /></div>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+@section scripts
+{
+
+    <script src="~/Scripts/app/Services/Validation/XMLValidator.js"></script>
+    <script src="~/Scripts/app/Services/Validation/JSONValidator.js"></script>
+    <script src="~/Scripts/app/Services/Validation/contentTypeValidator.js"></script>
+    <script src="~/Scripts/app/Directives/ContentTypeInfoStack.js"></script>
+    <script src="~/Scripts/app/Services/WebServiceGenerator.js"></script>
+    <script src="~/Scripts/app/Controllers/UpdateServiceController.js"></script>
+    <script src="~/Scripts/zeroclipboard/ZeroClipboard.min.js"></script>
+    <script src="~/Scripts/zeroclipboard/ServiceUrlCopy.js"></script>
+}

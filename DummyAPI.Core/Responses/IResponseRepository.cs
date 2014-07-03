@@ -11,5 +11,7 @@ namespace DummyAPI.Core.Responses
         string GetResponse(string responseId);
 
         string SaveResponse(string response);
+
+        void UpdateResponse(string responseId, string response);
     }
 }

@@ -56,6 +56,12 @@ namespace DummyAPI.Core.Responses
 
             return identifier;
         }
+
+
+        public void UpdateResponse(string responseId, string response)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 //    using System;

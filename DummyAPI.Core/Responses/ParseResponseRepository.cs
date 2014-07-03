@@ -50,5 +50,14 @@ namespace DummyAPI.Core.Responses
 
             return key.Result;
         }
+
+
+        public void UpdateResponse(string responseId, string response)
+        {
+            var testObject = new ParseObject("Response");
+            testObject["key"] = responseId;
+            testObject["body"] = response;
+            testObject.SaveAsync();
+        }
     }
 }

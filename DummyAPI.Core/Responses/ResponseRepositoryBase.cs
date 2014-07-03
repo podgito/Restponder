@@ -17,5 +17,20 @@ namespace DummyAPI.Core.Responses
         {
             throw new NotImplementedException();
         }
+
+        string IResponseRepository.GetResponse(string responseId)
+        {
+            throw new NotImplementedException();
+        }
+
+        string IResponseRepository.SaveResponse(string response)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IResponseRepository.UpdateResponse(string responseId, string response)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
