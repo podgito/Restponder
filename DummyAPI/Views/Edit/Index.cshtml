@@ -2,7 +2,7 @@
     ViewBag.Title = "Restponder";
 }
 
-<h2>Create response</h2>
+<h2>Edit response</h2>
 <div ng-controller="UpdateServiceController" data-ng-init="init('@ViewBag.Id')">
     <div class="row">
         <div class="col-md-12">
@@ -11,7 +11,7 @@
                     <div class="form-group">
                         <div class="col-md-8">
                             <label for="responseBody">
-                                Enter the response body for your web service.
+                                @*Enter the response body for your web service.*@
                             </label>
                         </div>
                     </div>
@@ -26,11 +26,12 @@
                         </div>
                     </div>
                 </div>
+                <br />
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
                             <button type="submit" ng-click="updateService('@ViewBag.Id', response, createServiceForm)" class="btn btn-primary">Update</button>
-                            <button type="button" ng-click="clearService(response)" class="btn btn-default">Revert (todo implementation)</button>
+                            <button type="button" ng-click="undoChanges()" class="btn btn-default" title="Revert to original response body">Undo</button>
                         </div>
                     </div>
                 </div>

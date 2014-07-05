@@ -14,16 +14,23 @@ app.controller('UpdateServiceController',
                 if (typeof data == 'string')
                 {
                     $scope.response.body = data;
+                    $scope.savedResponse.body = data;
                 }
                 else
                 {
                     $scope.response.body = JSON.stringify(data);
+                    $scope.savedResponse.body = JSON.stringify(data);
                 }
                 
             });
         },
+        $scope.savedResponse = {
+            body: '',  
+            headers: [],
+            url: ''
+        },
         $scope.response = {
-            body: '', //todo set the body 
+            body: '',  
             headers: [],
             url: ''
         },
@@ -36,6 +43,10 @@ app.controller('UpdateServiceController',
                 //service.url = webServiceGenerator.generatedService.url;
                 console.log(response.body);
             }
+        },
+        $scope.undoChanges = function()
+        {
+            $scope.response = $scope.savedResponse;
         },
         $scope.clearService = function (response) {
             //service.responseBody = '';
