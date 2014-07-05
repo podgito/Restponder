@@ -52,12 +52,21 @@ namespace DummyAPI.Core.Responses
         }
 
 
-        public void UpdateResponse(string responseId, string response)
+        public async void UpdateResponse(string key, string newResponseData)
         {
-            var testObject = new ParseObject("Response");
-            testObject["key"] = responseId;
-            testObject["body"] = response;
-            testObject.SaveAsync();
+
+            var query = from post in ParseObject.GetQuery("Response")
+                        where post.Get<string>("key") == key
+                        //orderby post.CreatedAt descending
+                        select post;
+
+            // Retrieve the results
+            var response = await query.FirstAsync().ConfigureAwait(false);
+
+
+            response["body"] = newResponseData;
+
+            await response.SaveAsync();
         }
     }
 }

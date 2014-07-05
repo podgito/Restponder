@@ -36,12 +36,12 @@ namespace DummyAPI.Controllers
             };
         }
 
-        public async void Put(string id)
-        {
-            var input = await Request.Content.ReadAsStringAsync();
+        //public async void Put(string id)
+        //{
+        //    var input = await Request.Content.ReadAsStringAsync();
 
-            responseRepository.UpdateResponse(id, input);
-        }
+        //    responseRepository.UpdateResponse(id, input);
+        //}
 
         private async Task<string> GetResponse(string key)
         {
@@ -75,9 +75,22 @@ namespace DummyAPI.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(string id, [FromBody]string value)
+        public async void Put(string id)
         {
-            responseRepository.UpdateResponse(id, value);
+            var input = await Request.Content.ReadAsStringAsync();
+
+            var query = from post in ParseObject.GetQuery("Response")
+                        where post.Get<string>("key") == id
+                        //orderby post.CreatedAt descending
+                        select post;
+
+            // Retrieve the results
+            var response = await query.FirstAsync().ConfigureAwait(false);
+
+
+            response["body"] = input;
+
+            await response.SaveAsync();
         }
 
         // DELETE api/<controller>/5
