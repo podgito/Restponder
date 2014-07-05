@@ -10,7 +10,16 @@ app.controller('UpdateServiceController',
         $scope.init = function(id)
         {
             webServiceGenerator.getServiceResponse(id, function (data) {
-                $scope.response.body = JSON.stringify(data);
+
+                if (typeof data == 'string')
+                {
+                    $scope.response.body = data;
+                }
+                else
+                {
+                    $scope.response.body = JSON.stringify(data);
+                }
+                
             });
         },
         $scope.response = {

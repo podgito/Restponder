@@ -75,7 +75,7 @@ namespace DummyAPI.Controllers
         }
 
         // PUT api/<controller>/5
-        public async void Put(string id)
+        public async Task Put(string id)
         {
             var input = await Request.Content.ReadAsStringAsync();
 
