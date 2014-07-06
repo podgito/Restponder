@@ -6,15 +6,12 @@
 
 app.controller('CreateServiceController',
     function CreateServiceController($scope, webServiceGenerator) {
-
-        //$scope.service = {
-        //    responseBody: '',
-        //    url: ''
-        //},
         $scope.response = {
             body: '',
             headers: [],
-            url: ''
+            url: '',
+            editUrl: '',
+            key: ''
         },
         $scope.createService = function (response, createServiceForm)
         {
@@ -22,21 +19,25 @@ app.controller('CreateServiceController',
             {
                 webServiceGenerator.createService(response.body, function (data) {
                     response.url = data.url;
+                    response.key = data.key;
+                    response.editUrl = data.editUrl;
                 });
-
-                //service.url = webServiceGenerator.generatedService.url;
                 console.log(response.body);
             }
            
         },
         $scope.clearService = function (response)
         {
-            //service.responseBody = '';
-            //service.url = '';
-
             response.body = '';
             response.url = '';
+        }
 
+        $scope.editApi = function (createServiceForm)
+        {
+            if (createServiceForm.$valid)
+            {
+                window.location = $scope.response.editUrl;
+            }
         }
 
 

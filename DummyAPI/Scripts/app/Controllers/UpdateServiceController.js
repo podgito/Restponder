@@ -7,8 +7,9 @@
 app.controller('UpdateServiceController',
     function UpdateServiceController($scope, webServiceGenerator) {
 
-        $scope.init = function(id)
+        $scope.init = function(id, url)
         {
+            $scope.response.url = url;
             webServiceGenerator.getServiceResponse(id, function (data) {
 
                 if (typeof data == 'string')
@@ -16,10 +17,14 @@ app.controller('UpdateServiceController',
                     $scope.response.body = data;
                     $scope.savedResponse.body = data;
                 }
-                else
+                else if (typeof data == 'object')
                 {
                     $scope.response.body = JSON.stringify(data);
                     $scope.savedResponse.body = JSON.stringify(data);
+                }
+                else {
+                    $scope.response.body = String(data);
+                    $scope.savedResponse.body = String(data);
                 }
                 
             });
@@ -46,7 +51,7 @@ app.controller('UpdateServiceController',
         },
         $scope.undoChanges = function()
         {
-            $scope.response = $scope.savedResponse;
+            $scope.response.body = $scope.savedResponse.body;
         },
         $scope.clearService = function (response) {
             //service.responseBody = '';

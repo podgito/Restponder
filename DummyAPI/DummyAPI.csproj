@@ -483,6 +483,7 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Edit\Index.cshtml" />
+    <Content Include="Views\Edit\Api.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DummyAPI.Core\DummyAPI.Core.csproj">

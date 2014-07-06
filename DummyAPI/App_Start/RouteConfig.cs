@@ -15,8 +15,14 @@ namespace DummyAPI
 
             routes.MapRoute(
                 name: "Edit",
+                url: "edit/index",
+                defaults: new {controller = "Edit", action = "Index" }
+            );
+
+            routes.MapRoute(
+                name: "EditApi",
                 url: "edit/{id}",
-                defaults: new {controller = "Edit", action = "Index", id = UrlParameter.Optional }
+                defaults: new {controller = "Edit", action = "Api" }
             );
 
             routes.MapRoute(

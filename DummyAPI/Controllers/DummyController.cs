@@ -66,11 +66,12 @@ namespace DummyAPI.Controllers
             var key = responseRepository.SaveResponse(input);
 
             var uriString = Url.Link("DefaultApi", new { controller = "Dummy", id = key });
+            var editUrl = Url.Link("EditApi", new { controller = "Edit", id = key });
 
            
 
             var uri = new Uri(uriString);
-            return new { url = uri.AbsoluteUri };
+            return new { url = uri.AbsoluteUri, key = key, editUrl = editUrl };
 
         }
 

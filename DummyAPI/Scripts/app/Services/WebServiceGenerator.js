@@ -17,6 +17,7 @@ app.factory('webServiceGenerator', function ($http, $log) {
             }).
            error(function (data, status, headers, config) {
                $log.warn(data, status, headers, config);
+               alert('Error reading ')
            });
         },
         createService: function (responseData, successCallback) {
