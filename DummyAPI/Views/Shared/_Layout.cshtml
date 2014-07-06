@@ -40,8 +40,10 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/angular.min.js"></script>
-    <script src="~/Scripts/app/app.js"></script>
+
+    @Scripts.Render("~/Scripts/angular.min.js", "~/Scripts/app/app.js")
+    @*<script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/app/app.js"></script>*@
     @RenderSection("scripts", required: false)
 </body>
 </html>
