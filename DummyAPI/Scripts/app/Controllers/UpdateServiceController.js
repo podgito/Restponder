@@ -42,7 +42,7 @@ app.controller('UpdateServiceController',
         $scope.updateService = function (id, response, createServiceForm) {
             if (createServiceForm.$valid) {
                 webServiceGenerator.updateService(id, response.body, function (data) {
-                    response.url = data.url;
+                    
                 });
 
                 //service.url = webServiceGenerator.generatedService.url;
