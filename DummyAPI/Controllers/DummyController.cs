@@ -1,4 +1,6 @@
-﻿using DummyAPI.Core.Responses;
+﻿using DummyAPI.Core.MockServices;
+using DummyAPI.Core.Responses;
+using DummyAPI.Models.CustomBindings;
 using Parse;
 using System;
 using System.Collections.Generic;
@@ -7,70 +9,53 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using UtilityLibrary.Strings;
 
 
 namespace DummyAPI.Controllers
 {
     public class DummyController : ApiController
     {
-        private IResponseRepository responseRepository;
+        private IMockServiceStore mockServiceStore;
 
         public DummyController()
         {
-            //this.responseRepository = ResponseRepository.Instance;
-            this.responseRepository = new ParseResponseRepository();
+            this.mockServiceStore = new ParseServiceStore();
         }
 
-        public DummyController(IResponseRepository responseRepository)
+        public DummyController(IMockServiceStore mockServiceRepository)
         {
-            this.responseRepository = responseRepository;
+            this.mockServiceStore = mockServiceRepository;
         }
-
 
         public async Task<HttpResponseMessage> Get(string id)
         {
+            var mockService = await mockServiceStore.FindByKeyAsync(id);
             return new HttpResponseMessage()
             {
-                Content = new StringContent(await GetResponse(id))
-
+                Content = new StringContent(mockService.Body)
             };
         }
 
-        //public async void Put(string id)
-        //{
-        //    var input = await Request.Content.ReadAsStringAsync();
 
-        //    responseRepository.UpdateResponse(id, input);
-        //}
-
-        private async Task<string> GetResponse(string key)
-        {
-            // Build a query
-            var query = from post in ParseObject.GetQuery("Response")
-                        where post.Get<string>("key") == key
-                        orderby post.CreatedAt descending
-                        select post;
-
-            // Retrieve the results
-            var response = await query.FirstOrDefaultAsync();
-
-            return response["body"].ToString();
-        }
-
-
-        public async System.Threading.Tasks.Task<object> Post()
+        public async System.Threading.Tasks.Task<object> Post([NakedBody]string rawBody)
         {
             
-            var input = await Request.Content.ReadAsStringAsync();
+            //var body = await Request.Content.ReadAsStringAsync();
+            var key = RandomStringGenerator.AlphaNumericString(10);
 
-            var key = responseRepository.SaveResponse(input);
+            var mockService = new MockService(key, rawBody);
+
+            var createServiceTask =  mockServiceStore.CreateAsync(mockService);
+
 
             var uriString = Url.Link("DefaultApi", new { controller = "Dummy", id = key });
             var editUrl = Url.Link("EditApi", new { controller = "Edit", id = key });
 
-           
-
             var uri = new Uri(uriString);
+
+            await createServiceTask;
+
             return new { url = uri.AbsoluteUri, key = key, editUrl = editUrl };
 
         }
@@ -78,25 +63,17 @@ namespace DummyAPI.Controllers
         // PUT api/<controller>/5
         public async Task Put(string id)
         {
-            var input = await Request.Content.ReadAsStringAsync();
+            var body = await Request.Content.ReadAsStringAsync();
 
-            var query = from post in ParseObject.GetQuery("Response")
-                        where post.Get<string>("key") == id
-                        //orderby post.CreatedAt descending
-                        select post;
+            var mockService = new MockService(id, body);
 
-            // Retrieve the results
-            var response = await query.FirstAsync().ConfigureAwait(false);
-
-
-            response["body"] = input;
-
-            await response.SaveAsync();
+            await mockServiceStore.UpdateAsync(mockService);
         }
 
         // DELETE api/<controller>/5
         public void Delete(int id)
         {
+
         }
     }
 }

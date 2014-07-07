@@ -1,4 +1,5 @@
 ﻿using DummyAPI.Controllers;
+using DummyAPI.Core.MockServices;
 using DummyAPI.Core.Responses;
 using Moq;
 using NUnit.Framework;
@@ -43,17 +44,19 @@ namespace DummyAPI.Tests.Controllers
             var key = "abcdef1234";
             var testData = "Test data";
 
-            var responseRepository = new Mock<IResponseRepository>();
+            var mockService = new MockService(key, testData);
+
+            var responseRepository = new Mock<IMockServiceStore>();
 
             var controller = new DummyController(responseRepository.Object)
             {
                 Request = request
             };
 
-            responseRepository.Setup(x => x.SaveResponse(testData)).Returns(key);
+            responseRepository.Setup(x => x.CreateAsync(mockService));
 
             //Act
-            var returnedString = controller.Post(testData);
+            var returnedString = controller.Post();
 
             //Assert
             var url = new Uri(returnedString.ToString());

@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.0.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Parse, Version=1.2.14.0, Culture=neutral, PublicKeyToken=ba48c3a442de616e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -120,7 +123,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -148,6 +150,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account\ApplicationUser.cs" />
+    <Compile Include="Models\Account\UserStore.cs" />
+    <Compile Include="Models\CustomBindings\NakedBodyParameterBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -488,6 +493,10 @@
     <ProjectReference Include="..\DummyAPI.Core\DummyAPI.Core.csproj">
       <Project>{ade3bc0c-cba2-4dc9-a472-29d3ae43eb3c}</Project>
       <Name>DummyAPI.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilityLibrary\UtilityLibrary.csproj">
+      <Project>{c0d8aa01-c077-417d-92ef-c114f68c973e}</Project>
+      <Name>UtilityLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
