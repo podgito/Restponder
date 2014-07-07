@@ -26,7 +26,19 @@ namespace DummyAPI
 
             bundles.Add(new ScriptBundle("~/bundles/angularapp").Include(
                 "~/Scripts/angular.min.js",
-                "~/Scripts/app/app.js"));
+                "~/Scripts/app/app.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/app/create").Include(
+                "~/scripts/app/controllers/CreateServiceController.js",
+                "~/scripts/app/Directives/ContentTypeInfoStack.js",
+                "~/scripts/app/Services/WebServiceGenerator.js",
+                "~/scripts/app/Services/Validation/xmlValidator.js",
+                "~/scripts/app/Services/Validation/contentTypeValidator.js",
+                "~/scripts/app/Services/Validation/JsonValidator.js",
+                "~/Scripts/zeroclipboard/ZeroClipboard.min.js",
+                "~/Scripts/zeroclipboard/ServiceUrlCopy.js"
+                ));
         }
     }
 }

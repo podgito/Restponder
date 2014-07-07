@@ -180,7 +180,6 @@
     <Content Include="Scripts\app\Controllers\CreateServiceController.js" />
     <Content Include="Scripts\app\Controllers\UpdateServiceController.js" />
     <Content Include="Scripts\app\Directives\ContentTypeInfoStack.js" />
-    <Content Include="Scripts\app\Directives\TextFormatValidationMessage.js" />
     <Content Include="Scripts\app\Services\Validation\contentTypeValidator.js" />
     <Content Include="Scripts\app\Services\Validation\JSONValidator.js" />
     <Content Include="Scripts\app\Services\Validation\XMLValidator.js" />
