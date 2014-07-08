@@ -35,9 +35,9 @@ namespace DummyAPI
                 "~/scripts/app/Services/WebServiceGenerator.js",
                 "~/scripts/app/Services/Validation/xmlValidator.js",
                 "~/scripts/app/Services/Validation/contentTypeValidator.js",
-                "~/scripts/app/Services/Validation/JsonValidator.js",
-                "~/Scripts/zeroclipboard/ZeroClipboard.min.js",
-                "~/Scripts/zeroclipboard/ServiceUrlCopy.js"
+                "~/scripts/app/Services/Validation/JsonValidator.js"
+                //"~/Scripts/zeroclipboard/ZeroClipboard.min.js",
+                //"~/Scripts/zeroclipboard/ServiceUrlCopy.js"
                 ));
         }
     }
