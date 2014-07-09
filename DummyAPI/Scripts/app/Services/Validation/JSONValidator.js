@@ -1,15 +1,23 @@
 ﻿/// <reference path="../../app.js" />
 /// <reference path="../../../angular.js" />
 
+(function () {
+    'use strict';
 
-'use strict';
+    var serviceId = 'jsonValidator';
 
-app.factory('jsonValidator', function () {
-    return {
-        isValid : function(body)
-        {
-            
+    // TODO: replace app with your module name
+    angular.module('DummyAPI').factory(serviceId, [JsonValidator]);
 
+    function JsonValidator($http) {
+        // Define the functions and properties to reveal.
+        var service = {
+            isValid: isValid
+        };
+
+        return service;
+
+        function isValid(body) {
             try {
                 jQuery.parseJSON(body);
             } catch (e) {
@@ -17,5 +25,9 @@ app.factory('jsonValidator', function () {
             }
             return true;
         }
-    };
-});
+
+        //#region Internal Methods        
+
+        //#endregion
+    }
+})();

@@ -1,12 +1,23 @@
 ﻿/// <reference path="~/scripts/angular.js" />
 /// <reference path="../../app.js" />
 
-'use strict';
+(function () {
+    'use strict';
 
-app.factory('contentTypeValidator', function (jsonValidator, xmlValidator) {
-    return {
-       validate : function (body) {
-            //Return state of the input form
+    var serviceId = 'contentTypeValidator';
+
+    // TODO: replace app with your module name
+    angular.module('DummyAPI').factory(serviceId, ['jsonValidator', 'xmlValidator', ContentTypeValidator]);
+
+    function ContentTypeValidator(jsonValidator, xmlValidator) {
+        // Define the functions and properties to reveal.
+        var service = {
+            validate: validate
+        };
+
+        return service;
+
+        function validate(body) {
             var inputState = new Object();
             //Check if body is either JSON or XML
 
@@ -19,8 +30,10 @@ app.factory('contentTypeValidator', function (jsonValidator, xmlValidator) {
             inputState.isPlainText = !(inputState.isEmpty || inputState.isJson || inputState.isXML);
 
             return inputState;
-
-
         }
-    };
-});
+
+        //#region Internal Methods        
+
+        //#endregion
+    }
+})();

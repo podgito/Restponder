@@ -182,11 +182,14 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\Controllers\CreateMockServiceController.js" />
     <Content Include="Scripts\app\Controllers\CreateServiceController.js" />
     <Content Include="Scripts\app\Controllers\UpdateServiceController.js" />
-    <Content Include="Scripts\app\Directives\ContentTypeInfoStack.js" />
+    <Content Include="Scripts\app\Directives\ContentTypeInfoStack1.js" />
+    <Content Include="Scripts\app\Directives\ContentTypeStack.js" />
     <Content Include="Scripts\app\Services\Validation\contentTypeValidator.js" />
     <Content Include="Scripts\app\Services\Validation\JSONValidator.js" />
+    <Content Include="Scripts\app\Services\Validation\TestService.js" />
     <Content Include="Scripts\app\Services\Validation\XMLValidator.js" />
     <Content Include="Scripts\app\Services\WebServiceGenerator.js" />
     <Content Include="Scripts\bootstrap.js" />

@@ -22,7 +22,7 @@
                             <textarea id="responseBody" ng-model="response.body" rows="10" class="form-control responseBody" placeholder="Enter response data..." required>{{response.body}}</textarea>
                         </div>
                         <div class="col-sm-2 col-md-2 hidden-xs">
-                            <div class="row"><content-type-info-stack text="{{response.body}}" /></div>
+                            <div class="row"><content-type-stack text="{{response.body}}" /></div>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
     <script src="~/Scripts/app/Services/Validation/XMLValidator.js"></script>
     <script src="~/Scripts/app/Services/Validation/JSONValidator.js"></script>
     <script src="~/Scripts/app/Services/Validation/contentTypeValidator.js"></script>
-    <script src="~/Scripts/app/Directives/ContentTypeInfoStack.js"></script>
+    <script src="~/Scripts/app/Directives/ContentTypeStack.js"></script>
     <script src="~/Scripts/app/Services/WebServiceGenerator.js"></script>
     <script src="~/Scripts/app/Controllers/UpdateServiceController.js"></script>
     <script src="~/Scripts/zeroclipboard/ZeroClipboard.min.js"></script>

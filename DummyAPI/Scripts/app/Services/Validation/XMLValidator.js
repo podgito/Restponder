@@ -1,12 +1,24 @@
 ﻿/// <reference path="../../app.js" />
 /// <reference path="../../../angular.js" />
 
-'use strict';
+//new
+(function () {
+    'use strict';
 
-app.factory('xmlValidator', function () {
-    return {
-        isValid: function (body) {
+    var serviceId = 'xmlValidator';
 
+    // TODO: replace app with your module name
+    angular.module('DummyAPI').factory(serviceId, [XmlValidator]);
+
+    function XmlValidator() {
+        // Define the functions and properties to reveal.
+        var service = {
+            isValid: isValid
+        };
+
+        return service;
+
+        function isValid(body) {
             var isValid = false;
 
             if (window.ActiveXObject) {
@@ -33,5 +45,10 @@ app.factory('xmlValidator', function () {
             }
             return isValid;
         }
-    };
-});
+
+        //#region Internal Methods        
+
+        //#endregion
+    }
+})();
+
