@@ -8,6 +8,11 @@ namespace DummyAPI
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+
+#if !DEBUG
+            BundleTable.EnableOptimizations = true;
+#endif
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -30,12 +35,12 @@ namespace DummyAPI
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/app/create").Include(
-                "~/scripts/app/controllers/CreateServiceController.js",
-                "~/scripts/app/Directives/ContentTypeInfoStack.js",
                 "~/scripts/app/Services/WebServiceGenerator.js",
                 "~/scripts/app/Services/Validation/xmlValidator.js",
                 "~/scripts/app/Services/Validation/contentTypeValidator.js",
-                "~/scripts/app/Services/Validation/JsonValidator.js"
+                "~/scripts/app/Services/Validation/JsonValidator.js",
+                "~/scripts/app/Directives/ContentTypeStack.js",
+                "~/scripts/app/controllers/CreateMockServiceController.js"
                 //"~/Scripts/zeroclipboard/ZeroClipboard.min.js",
                 //"~/Scripts/zeroclipboard/ServiceUrlCopy.js"
                 ));

@@ -9,7 +9,7 @@
 
     function CreateMockServiceController($scope, webServiceGenerator) {
         $scope.title = 'CreateMockServiceController';
-        $scope.activate = activate;
+        //$scope.activate = activate;
 
         $scope.response = {
             body: '',
@@ -40,6 +40,6 @@
             }
         };
 
-        function activate() { }
+        //function activate() { }
     }
 })();

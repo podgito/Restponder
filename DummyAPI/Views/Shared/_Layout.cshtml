@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="This online too allows you to quickly define mock web service endpoints and have them return JSON, XML or plain text data.">
+    <meta name="description" content="This online tool allows you to quickly define mock web service endpoints and have them return JSON, XML or plain text data.">
     <meta name="keywords" content="web, service, mock, json, webservice, json, xml, test, rest, api, developers, integration, app">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <title>@ViewBag.Title</title>
@@ -40,10 +40,10 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/angularapp")
+    @*@Scripts.Render("~/bundles/angularapp")*@
     @*@Scripts.Render("~/Scripts/angular.min.js", "~/Scripts/app/app.js")*@
-    @*<script src="~/Scripts/angular.min.js"></script>
-    <script src="~/Scripts/app/app.js"></script>*@
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
