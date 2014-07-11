@@ -34,7 +34,7 @@ namespace DummyAPI
                 "~/Scripts/app/app.js"
                 ));
 
-            bundles.Add(new ScriptBundle("~/bundles/app/create").Include(
+            bundles.Add(new Bundle("~/bundles/app/create").Include(
                 "~/scripts/app/Services/WebServiceGenerator.js",
                 "~/scripts/app/Services/Validation/xmlValidator.js",
                 "~/scripts/app/Services/Validation/contentTypeValidator.js",
