@@ -38,34 +38,53 @@ namespace DummyAPI.Controllers
         }
 
 
-        public async System.Threading.Tasks.Task<object> Post([NakedBody]string rawBody)
-        {
+        //public async System.Threading.Tasks.Task<object> Post(string name, [NakedBody]string rawBody)
+        //{
             
-            //var body = await Request.Content.ReadAsStringAsync();
-            var key = RandomStringGenerator.AlphaNumericString(10);
+        //    //var body = await Request.Content.ReadAsStringAsync();
+        //    var key = RandomStringGenerator.AlphaNumericString(10);
 
-            var mockService = new MockService(key, rawBody);
+        //    var mockService = new MockService(key, rawBody);
 
-            var createServiceTask =  mockServiceStore.CreateAsync(mockService);
+        //    var createServiceTask =  mockServiceStore.CreateAsync(mockService);
 
 
-            var uriString = Url.Link("DefaultApi", new { controller = "Dummy", id = key });
-            var editUrl = Url.Link("EditApi", new { controller = "Edit", id = key });
+        //    var uriString = Url.Link("DefaultApi", new { controller = "Dummy", id = key });
+        //    var editUrl = Url.Link("EditApi", new { controller = "Edit", id = key });
+
+        //    var uri = new Uri(uriString);
+
+        //    await createServiceTask;
+
+        //    return new { url = uri.AbsoluteUri, key = key, editUrl = editUrl };
+
+        //}
+
+        public async System.Threading.Tasks.Task<object> Post(MockService mockService)
+        {
+
+            mockService.Key = RandomStringGenerator.AlphaNumericString(10);
+
+            var createServiceTask = mockServiceStore.CreateAsync(mockService);
+
+            var uriString = Url.Link("DefaultApi", new { controller = "Dummy", id = mockService.Key });
+            var editUrl = Url.Link("EditApi", new { controller = "Edit", id = mockService.Key });
 
             var uri = new Uri(uriString);
 
             await createServiceTask;
 
-            return new { url = uri.AbsoluteUri, key = key, editUrl = editUrl };
+            return new { url = uri.AbsoluteUri, key = mockService.Key, editUrl = editUrl, name = mockService.Name };
 
         }
 
         // PUT api/<controller>/5
         public async Task Put(string id)
         {
+            throw new NotImplementedException();
             var body = await Request.Content.ReadAsStringAsync();
 
-            var mockService = new MockService(id, body);
+            var mockService = new MockService(id, "", body);
 
             await mockServiceStore.UpdateAsync(mockService);
         }

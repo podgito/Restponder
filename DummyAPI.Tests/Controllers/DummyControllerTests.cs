@@ -43,8 +43,9 @@ namespace DummyAPI.Tests.Controllers
             //Arrange
             var key = "abcdef1234";
             var testData = "Test data";
+            var serviceName = "service name";
 
-            var mockService = new MockService(key, testData);
+            var mockService = new MockService(key, serviceName, testData);
 
             var responseRepository = new Mock<IMockServiceStore>();
 
@@ -55,8 +56,11 @@ namespace DummyAPI.Tests.Controllers
 
             responseRepository.Setup(x => x.CreateAsync(mockService));
 
+            dynamic service = new object();
+            service.name = "Unit test name";
+
             //Act
-            var returnedString = controller.Post();
+            var returnedString = controller.Post(service);
 
             //Assert
             var url = new Uri(returnedString.ToString());
@@ -72,18 +76,19 @@ namespace DummyAPI.Tests.Controllers
             var key = "abcdef1234";
             var testData = "Test data";
 
-            var responseRepository = new Mock<IResponseRepository>();
+            var mockResponseRepository = new Mock<IMockServiceStore>();
 
+            var mockService = new MockService("key", "name", "body");
 
-            var controller = new DummyController(responseRepository.Object)
+            var controller = new DummyController(mockResponseRepository.Object)
                 {
                     Request = request
                 };
 
-            responseRepository.Setup(r => r.SaveResponse(testData)).Returns(key);
+            mockResponseRepository.Setup(r => r.CreateAsync(mockService));
 
             //Act
-            var returnedString = controller.Post(testData);
+            var returnedString = controller.Post(mockService);
            
 
             //Assert

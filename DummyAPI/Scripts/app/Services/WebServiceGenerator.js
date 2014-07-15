@@ -32,12 +32,12 @@
                alert('Error reading ')
            });
         }
-        function createService(responseData, successCallback) {
+        function createService(service, successCallback) {
             $http({
                 method: 'POST',
                 url: '/api/dummy',
-                data: responseData
-                //headers: { 'Content-Type': 'application/json' }
+                data: service,
+                headers: { 'Content-Type': 'application/json' }
 
             }).success(function (data, status, headers, config) {
                 successCallback(data);

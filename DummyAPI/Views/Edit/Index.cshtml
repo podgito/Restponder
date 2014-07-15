@@ -3,21 +3,28 @@
 }
 
 <h2>Edit response</h2>
-<div ng-controller="UpdateServiceController" data-ng-init="init('@ViewBag.Id')">
-    
+<div ng-controller="EditServiceController" data-ng-init="init()">
 
+    <div ng-repeat="service in services">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-2"> <strong>{{service.name}}</strong></div>
+                    <div class="col-md-2">{{service.editUrl}}</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
 
 </div>
 
 @section scripts
 {
 
-    <script src="~/Scripts/app/Services/Validation/XMLValidator.js"></script>
-    <script src="~/Scripts/app/Services/Validation/JSONValidator.js"></script>
-    <script src="~/Scripts/app/Services/Validation/contentTypeValidator.js"></script>
-    <script src="~/Scripts/app/Directives/ContentTypeInfoStack.js"></script>
-    <script src="~/Scripts/app/Services/WebServiceGenerator.js"></script>
-    <script src="~/Scripts/app/Controllers/UpdateServiceController.js"></script>
+
+    <script src="~/Scripts/app/Services/MockServiceRepository.js"></script>
+    <script src="~/Scripts/app/Controllers/EditServiceController.js"></script>
     <script src="~/Scripts/zeroclipboard/ZeroClipboard.min.js"></script>
     <script src="~/Scripts/zeroclipboard/ServiceUrlCopy.js"></script>
 }

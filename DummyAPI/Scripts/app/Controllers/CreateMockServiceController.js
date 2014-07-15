@@ -5,25 +5,28 @@
 
     // TODO: replace app with your module name
     angular.module('DummyAPI').controller(controllerId,
-        ['$scope', 'webServiceGenerator', CreateMockServiceController]);
+        ['$scope', 'webServiceGenerator', 'mockServiceRepository', CreateMockServiceController]);
 
-    function CreateMockServiceController($scope, webServiceGenerator) {
+    function CreateMockServiceController($scope, webServiceGenerator, mockServiceRepository) {
         $scope.title = 'CreateMockServiceController';
         //$scope.activate = activate;
 
-        $scope.response = {
+        $scope.service = {
             body: '',
             headers: [],
             url: '',
             editUrl: '',
-            key: ''
+            key: '',
+            name: ''
         };
         $scope.createService = function (response, createServiceForm) {
             if (createServiceForm.$valid) {
-                webServiceGenerator.createService(response.body, function (data) {
+                webServiceGenerator.createService(response, function (data) {
                     response.url = data.url;
                     response.key = data.key;
                     response.editUrl = data.editUrl;
+                    response.name = data.name;
+                    mockServiceRepository.addService(data);
                 });
                 console.log(response.body);
             }

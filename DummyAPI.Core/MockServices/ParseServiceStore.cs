@@ -44,6 +44,7 @@ namespace DummyAPI.Core.MockServices
             var dbMockResponse = new ParseObject("MockService");
             dbMockResponse["key"] = mockResponse.Key;
             dbMockResponse["body"] = mockResponse.Body;
+            dbMockResponse["name"] = mockResponse.Name;
             return dbMockResponse.SaveAsync();
         }
     }

@@ -39,6 +39,7 @@ namespace DummyAPI
                 "~/scripts/app/Services/Validation/xmlValidator.js",
                 "~/scripts/app/Services/Validation/contentTypeValidator.js",
                 "~/scripts/app/Services/Validation/JsonValidator.js",
+                "~/scripts/app/Services/MockServiceRepository.js",
                 "~/scripts/app/Directives/ContentTypeStack.js",
                 "~/scripts/app/controllers/CreateMockServiceController.js"
                 //"~/Scripts/zeroclipboard/ZeroClipboard.min.js",

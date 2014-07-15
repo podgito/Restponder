@@ -19,10 +19,19 @@
                 <div class="row">
                     <div class="form-group">
                         <div class="col-sm-10 col-md-8">
-                            <textarea id="responseBody" ng-model="response.body" rows="10" class="form-control responseBody" placeholder="Enter response data..." required></textarea>
+                            <input type="text" ng-model="service.name" class="form-control" placeholder="Service name" required />
+                        </div>
+                        
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-sm-10 col-md-8">
+                            <textarea id="responseBody" ng-model="service.body" rows="10" class="form-control responseBody" placeholder="Response body" required></textarea>
                         </div>
                         <div class="col-sm-2 col-md-2 hidden-xs">
-                            <div class="row"><content-type-stack text="{{response.body}}" /></div>
+                            <div class="row"><content-type-stack text="{{service.body}}" /></div>
                         </div>
                     </div>
                 </div>
@@ -30,8 +39,8 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
-                            <button type="submit" ng-click="createService(response, createServiceForm)" class="btn btn-primary">Create</button>
-                            <button type="button" ng-click="clearService(response)" class="btn btn-default">Clear</button>
+                            <button type="submit" ng-click="createService(service, createServiceForm)" class="btn btn-primary">Create</button>
+                            <button type="button" ng-click="clearService(service)" class="btn btn-default">Clear</button>
                         </div>
                     </div>
                 </div>
@@ -44,7 +53,7 @@
                 <h3>Generated Url</h3>
                 <div class="form-group">
 
-                    <input id="serviceUrl" ng-model="response.url" type="text" class="form-control" placeholder="Click create above..." readonly>
+                    <input id="serviceUrl" ng-model="service.url" type="text" class="form-control" placeholder="Click create above..." readonly>
                 </div>
                 <div class="form-group">
                     <button id="copy-button" data-clipboard-target="serviceUrl" type="button" class="btn btn-info" title="copy to clipboard"><span class="glyphicon glyphicon-share"></span></button>
