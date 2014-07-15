@@ -39,7 +39,7 @@
 
         $scope.editApi = function (createServiceForm) {
             if (createServiceForm.$valid) {
-                window.location = $scope.response.editUrl;
+                window.location = $scope.service.editUrl;
             }
         };
 
