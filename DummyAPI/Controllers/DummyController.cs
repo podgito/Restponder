@@ -81,7 +81,6 @@ namespace DummyAPI.Controllers
         // PUT api/<controller>/5
         public async Task Put(string id)
         {
-            throw new NotImplementedException();
             var body = await Request.Content.ReadAsStringAsync();
 
             var mockService = new MockService(id, "", body);
