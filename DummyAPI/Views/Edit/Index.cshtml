@@ -5,8 +5,26 @@
 <h2>Edit response</h2>
 <div ng-controller="EditServiceController" data-ng-init="init()">
 
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Services</h3>
+        </div>
+        @*<div class="panel-body" >
+               <p>Below are your current services.</p>
+            </div>*@
+        
+        <div class="list-group">
+            @*<div class="list-group-item" ng-repeat="service in services">
+                <a class="list-group-item-text" href="{{service.editUrl}}"><strong>{{service.name}}</strong></a>
+            </div>*@
+            <a class="list-group-item" ng-repeat="service in services" href="{{service.editUrl}}"><strong>{{service.name}}</strong></a>
+            <a class="list-group-item list-group-item-info" href="/"><h4><span class="glyphicon glyphicon-plus-sign"></span> Create New</h4></a>
+        </div>
+    </div>
+
     @*<div >
-        <div class="row" ng-repeat="service in services">
+        <div class="row" >
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-2"><a href="{{service.editUrl}}"><strong>{{service.name}}</strong></a> </div>
@@ -17,7 +35,7 @@
         </div>
         </div>*@
 
-    <table class="table table-striped table-hover table-bordered">
+    @*<table class="table table-striped table-hover table-bordered">
         <tr>
             <th>Service name</th>
             <th></th>
@@ -27,7 +45,7 @@
                 <a href="{{service.editUrl}}">{{service.name}}</></a>
             </td>
             <td>
-                
+
                 <input id="input-{{service.key}}" ng-model="service.url" class="form-control" placeholder="Click create above..." readonly type="hidden">
                 <button id="copy-button" data-clipboard-target="input-{{service.key}}" type="button" class="btn btn-info btn-xs" title="copy to clipboard"><span class="glyphicon glyphicon-share"></span></button>
                 <button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
@@ -39,7 +57,7 @@
                 <a href="/"><h4><span class="glyphicon glyphicon-plus-sign"></span> Create New</h4></a>
             </td>
         </tr>
-    </table>
+    </table>*@
 
 </div>
 
