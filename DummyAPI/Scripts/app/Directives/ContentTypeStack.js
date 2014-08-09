@@ -14,7 +14,17 @@
             restrict: 'E',
             templateUrl: '/ViewTemplates/ContentTypeInfoStack.html',
             replace: true,
+            scope:
+            {
+                buttonGroupClass: '='
+                //emptyClass: 'btn-success',
+                //plainClass: 'btn-default',
+                //xmlClass: 'btn-default',
+                //jsonClass : 'btn-default'
+    },
             controller: function ($scope) {
+
+                //$scope.buttonGroupClass = 'btn-group-vertical';
                 $scope.emptyClass = 'btn-success';
 
                 $scope.plainClass = 'btn-default';
@@ -26,12 +36,20 @@
         };
 
         function link(scope, element, attrs, controller) {
+
+            //if (attrs.buttonGroupClass) {
+            //    scope.buttonGroupClass = attrs.buttonGroupClass;
+            //}
+
+            
             attrs.$observe('text', function (newValue, oldValue) {
                 if (newValue !== oldValue) {
                     var state = contentTypeValidator.validate(newValue);
 
 
                     //Reset all
+                    
+
                     scope.emptyClass = 'btn-default';
                     scope.plainClass = 'btn-default';
                     scope.xmlClass = 'btn-default';
