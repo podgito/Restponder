@@ -21,7 +21,7 @@
                         <div class="col-sm-10 col-md-8">
                             <input type="text" ng-model="service.name" class="form-control" placeholder="Service name" required />
                         </div>
-                        
+
                     </div>
                 </div>
                 <br />
@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-sm-2 col-xs-8 col-md-2">
                             <div class="hidden-xs"><content-type-stack button-group-class="'btn-group-vertical'" text="{{service.body}}" /></div>
-                            <div class="visible-xs hidden-md hidden-lg"><br/><content-type-stack button-group-class="'btn-group btn-group-xs'" text="{{service.body}}" /></div>
+                            <div class="visible-xs hidden-md hidden-lg"><br /><content-type-stack button-group-class="'btn-group btn-group-xs'" text="{{service.body}}" /></div>
                         </div>
                     </div>
                 </div>
@@ -70,15 +70,10 @@
 
 @section scripts
 {
-    @*<script src="~/Scripts/app/Services/Validation/XMLValidator.js"></script>
-<script src="~/Scripts/app/Services/Validation/JSONValidator.js"></script>
-<script src="~/Scripts/app/Services/Validation/contentTypeValidator.js"></script>
-<script src="~/Scripts/app/Directives/ContentTypeStack.js"></script>
-<script src="~/Scripts/app/Services/WebServiceGenerator.js"></script>
-<script src="~/Scripts/app/Controllers/CreateMockServiceController.js"></script>*@
+
 
     @Scripts.Render("~/bundles/app/create")
 
-<script src="~/Scripts/zeroclipboard/ZeroClipboard.min.js"></script>
-<script src="~/Scripts/zeroclipboard/ServiceUrlCopy.js"></script>
+    <script src="~/Scripts/zeroclipboard/ZeroClipboard.min.js"></script>
+    <script src="~/Scripts/zeroclipboard/ServiceUrlCopy.js"></script>
 }
