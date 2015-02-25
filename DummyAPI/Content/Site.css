@@ -51,3 +51,8 @@ textarea.responseBody{
   margin-right: auto;
 }
 
+.fixed {
+    position:fixed;
+}
+
+
