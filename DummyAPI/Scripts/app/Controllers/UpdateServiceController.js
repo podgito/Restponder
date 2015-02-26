@@ -19,8 +19,8 @@ app.controller('UpdateServiceController',
                 }
                 else if (typeof data == 'object')
                 {
-                    $scope.response.body = JSON.stringify(data);
-                    $scope.savedResponse.body = JSON.stringify(data);
+                    $scope.response.body = JSON.stringify(data, null, 2);
+                    $scope.savedResponse.body = JSON.stringify(data, null, 2);
                 }
                 else {
                     $scope.response.body = String(data);
