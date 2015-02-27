@@ -43,6 +43,8 @@ input[type="checkbox"].input-validation-error {
 
 textarea.responseBody{
     max-width:1000px;
+    background-color:#EEEEEE;
+  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
 }
 
 .center-block {

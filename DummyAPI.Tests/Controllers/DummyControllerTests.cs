@@ -69,7 +69,7 @@ namespace DummyAPI.Tests.Controllers
         }
 
         [Test]
-        public void PostReturnsUrlContainingResponseKey()
+        public async Task PostReturnsUrlContainingResponseKey()
         {
             
             //Arrange
@@ -88,7 +88,7 @@ namespace DummyAPI.Tests.Controllers
             mockResponseRepository.Setup(r => r.CreateAsync(mockService));
 
             //Act
-            var returnedString = controller.Post(mockService);
+            var returnedString = await controller.Post(mockService);
            
 
             //Assert
