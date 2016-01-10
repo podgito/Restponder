@@ -1,15 +1,11 @@
 ﻿using Parse;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace DummyAPI.Core.MockServices
+namespace Restponder.Models.MockServices
 {
     public class ParseServiceStore : IMockServiceStore
     {
-
         static ParseServiceStore()
         {
             ParseClient.Initialize("acWBnpz71jAHtUTit5CmDfXHz4zplEMFYYxJMiiV", "S2O2cUX4dOeniERKUkHhORqTwnwWD1T8zaSMW0Az");

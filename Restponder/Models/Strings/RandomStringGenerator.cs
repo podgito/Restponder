@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace UtilityLibrary.Strings
+namespace Restponder.Models.Strings
 {
     public static class RandomStringGenerator
     {
-        static string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-        const int MAX_CHARS = 100;
+        private static string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+        private const int MAX_CHARS = 100;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="numChars">maxValue is 100</param>
         /// <returns></returns>
@@ -25,8 +22,5 @@ namespace UtilityLibrary.Strings
 
             return result;
         }
-
-
-
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace DummyAPI.Core.Responses
+namespace Restponder.Models.Responses
 {
     public interface IResponseRepository
     {

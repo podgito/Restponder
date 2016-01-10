@@ -1,18 +1,12 @@
 ﻿using Parse;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DummyAPI.Core.MockServices
+namespace Restponder.Models.MockServices
 {
     public class MockService
     {
-
         public static MockService FromParseObject(ParseObject @object)
         {
-            var service =  new MockService();
+            var service = new MockService();
 
             service.Key = @object["key"].ToString();
             service.Body = @object["body"].ToString();
@@ -25,8 +19,9 @@ namespace DummyAPI.Core.MockServices
 
         public string Name { get; set; }
 
-
-        private MockService() { }
+        private MockService()
+        {
+        }
 
         public MockService(string key, string name, string body)
         {
@@ -34,6 +29,5 @@ namespace DummyAPI.Core.MockServices
             this.Name = name;
             this.Body = body;
         }
-
     }
 }

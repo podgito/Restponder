@@ -155,6 +155,14 @@
     <Compile Include="Models\Account\ApplicationUser.cs" />
     <Compile Include="Models\Account\UserStore.cs" />
     <Compile Include="Models\CustomBindings\NakedBodyParameterBinding.cs" />
+    <Compile Include="Models\MockServices\IMockServiceStore.cs" />
+    <Compile Include="Models\MockServices\MockService.cs" />
+    <Compile Include="Models\MockServices\ParseServiceStore.cs" />
+    <Compile Include="Models\Responses\IResponseRepository.cs" />
+    <Compile Include="Models\Responses\ParseResponseRepository.cs" />
+    <Compile Include="Models\Responses\ResponseRepository.cs" />
+    <Compile Include="Models\Responses\ResponseRepositoryBase.cs" />
+    <Compile Include="Models\Strings\RandomStringGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -502,16 +510,6 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Edit\Index.cshtml" />
     <Content Include="Views\Edit\Api.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DummyAPI.Core\DummyAPI.Core.csproj">
-      <Project>{ade3bc0c-cba2-4dc9-a472-29d3ae43eb3c}</Project>
-      <Name>DummyAPI.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UtilityLibrary\UtilityLibrary.csproj">
-      <Project>{c0d8aa01-c077-417d-92ef-c114f68c973e}</Project>
-      <Name>UtilityLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

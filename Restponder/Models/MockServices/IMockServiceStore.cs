@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DummyAPI.Core.MockServices
+namespace Restponder.Models.MockServices
 {
     public interface IMockServiceStore
     {

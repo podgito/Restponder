@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restponder", "Restponder\Restponder.csproj", "{D4027AAD-8726-4DFB-81A8-2997E3A1C4F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restponder.Tests", "Restponder.Tests\Restponder.Tests.csproj", "{D0B19686-A942-4A48-BB59-9F74C85D8C70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4027AAD-8726-4DFB-81A8-2997E3A1C4F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4027AAD-8726-4DFB-81A8-2997E3A1C4F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4027AAD-8726-4DFB-81A8-2997E3A1C4F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4027AAD-8726-4DFB-81A8-2997E3A1C4F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B19686-A942-4A48-BB59-9F74C85D8C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B19686-A942-4A48-BB59-9F74C85D8C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B19686-A942-4A48-BB59-9F74C85D8C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B19686-A942-4A48-BB59-9F74C85D8C70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

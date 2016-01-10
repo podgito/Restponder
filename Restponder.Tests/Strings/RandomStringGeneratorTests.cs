@@ -1,16 +1,12 @@
 ﻿using NUnit.Framework;
+using Restponder.Models.Strings;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UtilityLibrary.Tests.Strings
 {
     [TestFixture]
     public class RandomStringGeneratorTests
     {
-
         [Test]
         [TestCase(0)]
         [TestCase(1)]
@@ -19,11 +15,9 @@ namespace UtilityLibrary.Tests.Strings
         [TestCase(100)]
         public void RandomStringIsOfTheCorrectLength(int stringLength)
         {
-
-            var generatedString = UtilityLibrary.Strings.RandomStringGenerator.AlphaNumericString(stringLength);
+            var generatedString = RandomStringGenerator.AlphaNumericString(stringLength);
 
             Assert.AreEqual(stringLength, generatedString.Length);
-
         }
 
         [Test]
@@ -34,9 +28,7 @@ namespace UtilityLibrary.Tests.Strings
         [ExpectedException(exceptionType: typeof(ArgumentOutOfRangeException))]
         public void RandomStringInputLengthLessThanZeroAndGreaterThanMaxValueThrowsException(int stringLength)
         {
-            var generatedString = UtilityLibrary.Strings.RandomStringGenerator.AlphaNumericString(stringLength);
+            var generatedString = RandomStringGenerator.AlphaNumericString(stringLength);
         }
-
-
     }
 }

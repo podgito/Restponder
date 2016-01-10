@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Parse;
+using Restponder.Models.Strings;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Parse;
-using UtilityLibrary.Strings;
 
-namespace DummyAPI.Core.Responses
+namespace Restponder.Models.Responses
 {
     public class ParseResponseRepository : IResponseRepository
     {
-
         static ParseResponseRepository()
         {
             ParseClient.Initialize("acWBnpz71jAHtUTit5CmDfXHz4zplEMFYYxJMiiV", "S2O2cUX4dOeniERKUkHhORqTwnwWD1T8zaSMW0Az");
         }
+
         public async Task<string> GetResponse(string key)
         {
             // Build a query
@@ -51,10 +48,8 @@ namespace DummyAPI.Core.Responses
             return key.Result;
         }
 
-
         public async void UpdateResponse(string key, string newResponseData)
         {
-
             var query = from post in ParseObject.GetQuery("Response")
                         where post.Get<string>("key") == key
                         //orderby post.CreatedAt descending
@@ -62,7 +57,6 @@ namespace DummyAPI.Core.Responses
 
             // Retrieve the results
             var response = await query.FirstAsync().ConfigureAwait(false);
-
 
             response["body"] = newResponseData;
 
