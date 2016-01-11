@@ -202,7 +202,6 @@
     <Content Include="Scripts\app\Services\MockServiceRepository.js" />
     <Content Include="Scripts\app\Services\Validation\contentTypeValidator.js" />
     <Content Include="Scripts\app\Services\Validation\JSONValidator.js" />
-    <Content Include="Scripts\app\Services\Validation\TestService.js" />
     <Content Include="Scripts\app\Services\Validation\XMLValidator.js" />
     <Content Include="Scripts\app\Services\WebServiceGenerator.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
