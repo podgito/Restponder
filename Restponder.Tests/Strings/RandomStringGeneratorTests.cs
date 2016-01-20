@@ -25,10 +25,9 @@ namespace UtilityLibrary.Tests.Strings
         [TestCase(int.MinValue)]
         [TestCase(101)]
         [TestCase(int.MaxValue)]
-        [ExpectedException(exceptionType: typeof(ArgumentOutOfRangeException))]
         public void RandomStringInputLengthLessThanZeroAndGreaterThanMaxValueThrowsException(int stringLength)
         {
-            var generatedString = RandomStringGenerator.AlphaNumericString(stringLength);
+             Assert.Throws<ArgumentOutOfRangeException>(() => RandomStringGenerator.AlphaNumericString(stringLength));
         }
     }
 }

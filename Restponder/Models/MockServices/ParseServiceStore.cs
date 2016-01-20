@@ -1,6 +1,7 @@
 ﻿using Parse;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace Restponder.Models.MockServices
 {
@@ -11,7 +12,7 @@ namespace Restponder.Models.MockServices
             ParseClient.Initialize("acWBnpz71jAHtUTit5CmDfXHz4zplEMFYYxJMiiV", "S2O2cUX4dOeniERKUkHhORqTwnwWD1T8zaSMW0Az");
         }
 
-        public async Task<MockService> FindByKeyAsync(string key)
+        public async Task<MockService> FindByIDAsync(string key)
         {
             var dbServiceObject = await FindbyKey(key);
 
@@ -42,6 +43,11 @@ namespace Restponder.Models.MockServices
             dbMockResponse["body"] = mockResponse.Body;
             dbMockResponse["name"] = mockResponse.Name;
             return dbMockResponse.SaveAsync();
+        }
+
+        public Task DeleteAsync(string serviceID)
+        {
+            throw new NotImplementedException();
         }
     }
 }

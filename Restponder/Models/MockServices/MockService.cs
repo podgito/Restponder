@@ -14,7 +14,7 @@ namespace Restponder.Models.MockServices
             return service;
         }
 
-        public string Key { get; set; }
+        public string Key { get; set; } //Should the key be a property of this object?
         public string Body { get; set; }
 
         public string Name { get; set; }

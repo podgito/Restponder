@@ -1,6 +1,6 @@
-﻿using DummyAPI.Controllers;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
+using Restponder.Controllers;
 using Restponder.Models.MockServices;
 using System;
 using System.Net.Http;
@@ -31,6 +31,26 @@ namespace DummyAPI.Tests.Controllers
             request.Properties[System.Web.Http.Hosting.HttpPropertyKeys.HttpRouteDataKey] = new System.Web.Http.Routing.HttpRouteData(new System.Web.Http.Routing.HttpRoute());
         }
 
+
+        [Test]
+        public void Post_Returns_Name_And_Key()
+        {
+
+        }
+
+        [Test]
+        public void CreateService_Requires_Name()
+        {
+
+        }
+
+        [Test]
+        public void CreateService_Does_Not_Require_Body()
+        {
+
+        }
+
+
         [Test]
         public void PostingABodyReturnsAValidAbsoluteURL()
         {
@@ -50,11 +70,10 @@ namespace DummyAPI.Tests.Controllers
 
             responseRepository.Setup(x => x.CreateAsync(mockService));
 
-            dynamic service = new object();
-            service.name = "Unit test name";
+            //dynamic service = new { name = "Unit test name" };
 
             //Act
-            var returnedString = controller.Post(service);
+            var returnedString = controller.Post(mockService);
 
             //Assert
             var url = new Uri(returnedString.ToString());

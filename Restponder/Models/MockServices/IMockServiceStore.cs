@@ -9,11 +9,13 @@ namespace Restponder.Models.MockServices
     public interface IMockServiceStore
     {
 
-        Task<MockService> FindByKeyAsync(string key);
+        Task<MockService> FindByIDAsync(string serviceID);
 
         Task UpdateAsync(MockService mockResponse);
 
         Task CreateAsync(MockService mockResponse);
+
+        Task DeleteAsync(string serviceID);
 
     }
 }
