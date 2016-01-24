@@ -1,7 +1,10 @@
-﻿using Restponder.Models.MockServices;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Restponder.Models.MockServices;
 using Restponder.Models.Strings;
 using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -24,31 +27,51 @@ namespace DummyAPI.Controllers
         public async Task<HttpResponseMessage> Get(string id)
         {
             var mockService = await mockServiceStore.FindByKeyAsync(id);
-            return new HttpResponseMessage()
+            var response = new HttpResponseMessage()
             {
                 Content = new StringContent(mockService.Body)
+
             };
+            SetContentType(response, mockService.Body);
+            return response;
         }
 
-        //public async System.Threading.Tasks.Task<object> Post(string name, [NakedBody]string rawBody)
-        //{
-        //    //var body = await Request.Content.ReadAsStringAsync();
-        //    var key = RandomStringGenerator.AlphaNumericString(10);
+        private static void SetContentType(HttpResponseMessage response, string responseContent)
+        {
+            if (IsValidJson(responseContent))
+            {
+                response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            }
+        }
 
-        //    var mockService = new MockService(key, rawBody);
+        private static bool IsValidJson(string strInput)
+        {
+            strInput = strInput.Trim();
+            if ((strInput.StartsWith("{") && strInput.EndsWith("}")) || //For object
+                (strInput.StartsWith("[") && strInput.EndsWith("]"))) //For array
+            {
+                try
+                {
+                    var obj = JToken.Parse(strInput);
+                    return true;
+                }
+                catch (JsonReaderException)
+                {
+                    return false;
+                }
+                catch (Exception) //some other exception
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-        //    var createServiceTask =  mockServiceStore.CreateAsync(mockService);
 
-        //    var uriString = Url.Link("DefaultApi", new { controller = "Dummy", id = key });
-        //    var editUrl = Url.Link("EditApi", new { controller = "Edit", id = key });
 
-        //    var uri = new Uri(uriString);
-
-        //    await createServiceTask;
-
-        //    return new { url = uri.AbsoluteUri, key = key, editUrl = editUrl };
-
-        //}
 
         public async System.Threading.Tasks.Task<object> Post(MockService mockService)
         {
